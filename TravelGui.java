@@ -7,7 +7,6 @@ package pkg603_assignment2;
  */
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
 /**
@@ -16,8 +15,10 @@ import java.awt.event.*;
  */
 public class TravelGui extends JFrame implements ActionListener {
     
-   TextField text = new TextField(20);
-    
+   JRadioButton bus, train, ferry, taxi, premiumTaxi,intercityBus ;
+   JButton b;
+   JPanel p; 
+   JLabel label;
     
 public TravelGui(String name){
 
@@ -25,55 +26,89 @@ public TravelGui(String name){
     
     setLayout(null);
     
-    JButton busButton = new JButton("Bus");
-    busButton.setLocation(0,10);
-    busButton.setSize(100, 50);
-    busButton.setFont(new Font("Courier", Font.BOLD,10));
-    busButton.setForeground(Color.pink);
-    getContentPane().add(busButton);
+    //label at the top of the GUI//
+   label = new JLabel("Welcome to I Book A Ride!");
+   label.setSize(20,20);
+   label.setBounds(10,10,100,30);
+   label.setVisible(true);
+
     
-    JButton trainButton = new JButton("Train");
-    trainButton.setLocation(100,10);
-    trainButton.setSize(100, 50);
-    trainButton.setFont(new Font("Courier", Font.BOLD,10));
-    trainButton.setForeground(Color.blue);
-    getContentPane().add(trainButton);
+    bus = new JRadioButton("Bus");
+    bus.setBounds(100, 60, 150, 30);
     
-    JButton ferryButton = new JButton("Ferry");
-    ferryButton.setLocation(200,10);
-    ferryButton.setSize(100, 50);
-    ferryButton.setFont(new Font("Courier", Font.BOLD,10));
-    ferryButton.setForeground(Color.orange);
-    getContentPane().add(ferryButton);
+    train = new JRadioButton("Train");
+    train.setBounds(100,75,150,30);
     
-    JButton taxiButton = new JButton("Taxi");
-    taxiButton.setLocation(300,10);
-    taxiButton.setSize(100, 50);
-    taxiButton.setFont(new Font("Courier", Font.BOLD,10));
-    taxiButton.setForeground(Color.gray);
-    getContentPane().add(taxiButton);
+    ferry = new JRadioButton("Ferry");
+    ferry.setBounds(100,90,150,30);
     
-    JButton PremiumTaxiButton = new JButton("Premium Taxi");
-    PremiumTaxiButton.setLocation(400,10);
-    PremiumTaxiButton.setSize(100, 50);
-    PremiumTaxiButton.setFont(new Font("Courier", Font.BOLD,10));
-    PremiumTaxiButton.setForeground(Color.black);
-    getContentPane().add(PremiumTaxiButton);
+    taxi = new JRadioButton("Taxi");
+    taxi.setBounds(100, 105, 150, 30);
     
-    JButton IntercityBusButton = new JButton("Intercity Bus");
-    IntercityBusButton.setLocation(500,10);
-    IntercityBusButton.setSize(100, 50);
-    IntercityBusButton.setFont(new Font("Courier", Font.BOLD,10));
-    IntercityBusButton.setForeground(Color.magenta);
-    getContentPane().add(IntercityBusButton);
+    premiumTaxi = new JRadioButton("Premium Taxi");
+    premiumTaxi.setBounds(100,120,150,30);
     
-    busButton.addActionListener(this);
-    trainButton.addActionListener(this);
-    ferryButton.addActionListener(this);
-    taxiButton.addActionListener(this);
-    PremiumTaxiButton.addActionListener(this);
-    IntercityBusButton.addActionListener(this);
+    intercityBus = new JRadioButton("Intercity Bus");
+    intercityBus.setBounds(100,135,150,30);
+    
+    ButtonGroup bg = new ButtonGroup();
+    bg.add(bus);
+    bg.add(train);
+    bg.add(ferry);
+    bg.add(taxi);
+    bg.add(premiumTaxi);
+    bg.add(intercityBus);
+    b = new JButton("Confirm");
+    b.setBounds(200,170,80,30);
+    b.addActionListener(this);
+    add(bus);
+    add(train);
+    add(ferry);
+    add(taxi);
+    add(premiumTaxi);
+    add(intercityBus);
+    add(b);
+    
+    ///Panel//
+  //  p  = new JPanel();
+    
+   // p.add(bus);
+   
+
+
 }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+    if(bus.isSelected())
+    {
+        JOptionPane.showMessageDialog(this,"You have selected a day bus package");
+    }
+     if(train.isSelected())
+    {
+        JOptionPane.showMessageDialog(this,"You have selected a day train package");
+    }
+         if(ferry.isSelected())
+    {
+        JOptionPane.showMessageDialog(this,"You have selected a day ferry package");
+    }
+     if(taxi.isSelected())
+    {
+        JOptionPane.showMessageDialog(this,"You have selected a day taxi package");
+    }
+     
+     if(premiumTaxi.isSelected())
+    {
+        JOptionPane.showMessageDialog(this,"You have selected a day premium taxi package");
+    }
+     if(intercityBus.isSelected())
+    {
+        JOptionPane.showMessageDialog(this,"You have selected a day intercity bus package");
+    }
+     
+         
+    }
 
 public static void main(String[] args)
 {
@@ -84,14 +119,10 @@ public static void main(String[] args)
     frame.setSize(700,600);
     frame.setLocationRelativeTo(null);
     frame.setVisible(true);
+  
 
 }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        
-        System.out.println("Button pressed by user");
-         
-    }
+
             
 }
