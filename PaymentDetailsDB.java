@@ -75,7 +75,7 @@ public void createPaymentDetailsTable() {
         String newTable2 = "PAYMENTDETAILS";
 
 
-        String sqlCreateTable2 = "CREATE TABLE "+newTable2+" (PaymentMethod VARCHAR(4),"+ "CardholdersName VARCHAR(255), CardNumber INT, CVV INT, CardExpiryDate DATE, ID INT)";
+        String sqlCreateTable2 = "CREATE TABLE "+newTable2+" (PaymentMethod VARCHAR(4),"+ "CardholdersName VARCHAR(255),"+ "CardNumber INT, "+"CVV INT, "+"CardExpiryDate DATE,"+ "ID INT)";
 
         this.statement = conn.createStatement();
         this.statement.addBatch(sqlCreateTable2);
