@@ -9,6 +9,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -17,8 +19,7 @@ import java.sql.Statement;
 public class DBManager {
     private static final String USER_NAME = "pdc2"; //your DB username
     private static final String PASSWORD = "pdc2"; //your DB password
-    private static final String URL = "jdbc:derby:603_Travel;create=true";  //"jdbc:derby://localhost:1527/BookStore";  //url of the DB host
-
+    private static final String URL = "jdbc:derby:603_Travel;create=true";  
     Connection conn;
 
     public DBManager() {
@@ -55,7 +56,7 @@ public class DBManager {
             }
         }
     }
-
+              
     public ResultSet queryDB(String sql) {
 
         Connection connection = this.conn;
@@ -71,6 +72,21 @@ public class DBManager {
         }
         return resultSet;
     }
+    
+    public Data addPersonalDetails(String name, String email, String phone, String age)
+    {
+        Data data = new Data();
+        try{
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("INSERT INTO name, email,phoneNumber, age FROM PersonalDetails");
+        }catch(SQLException ex)
+        {
+             Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return data; 
+    }
+      
+
 
     public void updateDB(String sql) {
 
