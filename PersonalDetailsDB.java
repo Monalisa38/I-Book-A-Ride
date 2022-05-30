@@ -18,13 +18,19 @@ public class PersonalDetailsDB {
 
 private final DBManager dbManager;
 private final Connection conn;
+public Data data;
+public String name;
+public String email;
+public String phone;
+public String age;
 private Statement statement;
 
 
 
 public PersonalDetailsDB() {
-        dbManager = new DBManager();
-        conn = dbManager.getConnection();
+    
+this.dbManager = new DBManager();
+conn = dbManager.getConnection();
         
 }
 
@@ -36,8 +42,6 @@ try {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-
-
 }
 
 public void createPersonalDetailsTable() {
@@ -50,13 +54,10 @@ public void createPersonalDetailsTable() {
 
 
         String sqlCreateTable = "CREATE TABLE "+newTable+" (Name VARCHAR(255),"+"Email VARCHAR(255)," +"PhoneNumber INT,"+ "Age INT)";
-        String sqlAddRecord1 = "INSERT INTO PERSONALDETAILS VALUES('Monalisa','abc@yahoo.com', 1234567890, 19)";
-        String sqlAddRecord2 = "INSERT INTO PERSONALDETAILS VALUES('Alisha','abcd@yahoo.com', 1234567890, 15)";
+
         
         this.statement = conn.createStatement();
         this.statement.addBatch(sqlCreateTable);
-        this.statement.addBatch(sqlAddRecord1);
-        this.statement.addBatch(sqlAddRecord2);
         this.statement.executeBatch();
         
         }
@@ -69,6 +70,26 @@ public void createPersonalDetailsTable() {
 
 
 }
+
+/**
+ * 
+ * @param name
+ * @param email
+ * @param phone
+ * @param age 
+ */
+
+public void addPersonalDetails(String name, String email, String phone, String age)
+{
+    this.name = name;
+    this.email = email;
+    this.phone = phone;
+    this.age = age;
+    
+    this.data = this.dbManager.addPersonalDetails(name, email, phone, age);
+}
+
+
 public void queryName() throws SQLException
 {
     ResultSet rs = null;
