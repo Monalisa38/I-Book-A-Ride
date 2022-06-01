@@ -28,8 +28,9 @@ public class Train extends Travel /*train method*/
     }
 
     @Override
-    public void CaculatePrice() {
+    public double CaculatePrice() {
         this.price = customer * cost;
+        return this.price;
     }
 
 }
