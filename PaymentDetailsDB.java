@@ -20,6 +20,12 @@ public class PaymentDetailsDB {
 private final DBManager dbManager;
 private final Connection conn;
 private Statement statement;
+public Data data;
+private String PaymentMethod;
+    private String cardName;
+    private String cardNumber;
+    private String MM;
+    private String YY;
 
 
 
@@ -75,7 +81,8 @@ public void createPaymentDetailsTable() {
         String newTable2 = "PAYMENTDETAILS";
 
 
-        String sqlCreateTable2 = "CREATE TABLE "+newTable2+" (PaymentMethod VARCHAR(4),"+ "CardholdersName VARCHAR(255),"+ "CardNumber INT, "+"CVV INT, "+"CardExpiryDate DATE,"+ "ID INT)";
+        String sqlCreateTable2 = "CREATE TABLE "+newTable2+" (PaymentMethod VARCHAR(20),"+ "CardholdersName VARCHAR(255),"+ "CardNumber VARCHAR(255), "+"CardExpiryMonth VARCHAR(20),"+ "CardExpiryYear VARCHAR(20))";
+
 
         this.statement = conn.createStatement();
         this.statement.addBatch(sqlCreateTable2);
@@ -87,9 +94,77 @@ public void createPaymentDetailsTable() {
 
         }   
 
+        
 
 
 }
+
+
+
+public void queryPaymentType() throws SQLException
+    {
+        ResultSet rs = null;
+        try{
+            rs = this.statement.executeQuery("SELECT PaymentMethod from PAYMENTDETAILS");
+            while(rs.next())
+            {
+                String PaymentType= rs.getString("PaymentMethod");
+                System.out.println("Payment Method: " +(PaymentType));
+            }
+        }
+        catch(SQLException ex)
+        {
+            System.out.println("[queryPaymentMethod]:"+ex.getMessage());
+        }
+    }
+
+public void queryCardHolderName() throws SQLException
+    {
+        ResultSet rs = null;
+        try{
+            rs = this.statement.executeQuery("SELECT CardholdersName from PAYMENTDETAILS");
+            while(rs.next())
+            {
+                String CardHolderName= rs.getString("CardholdersName");
+                System.out.println("Cardholder's Name: " +(CardHolderName));
+            }
+        }
+        catch(SQLException ex)
+        {
+            System.out.println("[queryCardholdersName]:"+ex.getMessage());
+        }
+    }
+
+public void queryCardNumber() throws SQLException
+    {
+        ResultSet rs = null;
+        try{
+            rs = this.statement.executeQuery("SELECT CardNumber from PAYMENTDETAILS");
+            while(rs.next())
+            {
+                String cardNumber= rs.getString("CardNumber");
+                System.out.println("Card Number: " +(cardNumber));
+            }
+        }
+        catch(SQLException ex)
+        {
+            System.out.println("[querycardNumber]:"+ex.getMessage());
+        }
+    }
+
+
+           
+     public void addPaymentDetails(String PaymentMethod, String cardName, String cardNumber, String MM, String YY)
+     {
+         this.PaymentMethod = PaymentMethod;
+         this.cardName = cardName;
+         this.cardNumber = cardNumber;
+         this.MM = MM;
+         this.YY = YY;
+         
+         this.data = this.dbManager.addPaymentDetails(PaymentMethod, cardName, cardNumber, MM, YY);
+         
+     }
 
 public void closeConnection()
 {
