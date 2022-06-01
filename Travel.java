@@ -31,7 +31,7 @@ public abstract class Travel /* abstract travel class, for all travel kinds*/ {
         this.travelType = newName;
     }
 
-    public abstract void CaculatePrice();
+    public abstract double CaculatePrice();
 
 
 }
