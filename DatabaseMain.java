@@ -14,11 +14,12 @@ public class DatabaseMain {
 
     public static void main(String[] args) throws SQLException {
         DBManager db = new DBManager();
+        
 
         PersonalDetailsDB dt = new PersonalDetailsDB();
         TravelDetailsDB dt1 = new TravelDetailsDB();
         PaymentDetailsDB dt2 = new PaymentDetailsDB();
-        MembershipDetailsDB dt3 = new MembershipDetailsDB();
+
 
         dt.connectTravelDB();
         dt.createPersonalDetailsTable();
@@ -30,28 +31,16 @@ public class DatabaseMain {
 
         dt1.connectTravelDB();
         dt1.createTravelDetailsTable();
-        dt1.queryName();
         dt1.queryTravelType();
-        dt1.queryCity();
         dt1.queryPeople();
-        dt1.queryDate();
         dt1.closeConnection();
 
         dt2.connectTravelDB();
         dt2.createPaymentDetailsTable();
-        dt2.queryName();
         dt2.queryPaymentType();
         dt2.queryCardHolderName();
         dt2.queryCardNumber();
-        dt2.queryCVV();
-        dt2.queryCardExpiryDate();
         dt2.closeConnection();
-
-        dt3.connectTravelDB();
-        dt3.createMembershipDetailsTable();
-        dt3.queryName();
-        dt3.queryMembership();
-        dt3.closeConnection();
 
     }
 
