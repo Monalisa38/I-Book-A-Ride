@@ -33,7 +33,7 @@ public abstract class IntercityOptions /*intercity methods*/
 
 
 
-    public abstract void CalculateTotal();
+    public abstract double CalculateTotal();
 
 
 }
