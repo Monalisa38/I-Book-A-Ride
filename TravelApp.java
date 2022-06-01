@@ -6,6 +6,7 @@ package pkg603_assignment2;
 
 
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
@@ -27,7 +28,6 @@ public class TravelApp extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
     }
-
 
 
     /**
@@ -923,6 +923,8 @@ public class TravelApp extends javax.swing.JFrame {
 
     private void peopleFieldActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
+        String command = evt.getActionCommand();
+            System.out.println("ui action command " +command );
     }                                           
 
     private void RestartButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
@@ -1009,8 +1011,11 @@ public class TravelApp extends javax.swing.JFrame {
         
     }                                   
 
+    //jingli
     private void peopleField(java.awt.event.KeyEvent evt) {                             
-     char c = evt.getKeyChar();
+     
+        
+        char c = evt.getKeyChar();
 
            if (((c<'0' )|| (c > '9')) && (c != KeyEvent.VK_BACK_SPACE))
         {
@@ -1102,7 +1107,7 @@ public class TravelApp extends javax.swing.JFrame {
     }                             
 
     private void totalActionPerformed(java.awt.event.ActionEvent evt) {                                      
-       
+          
             
     }                                     
 
@@ -1250,6 +1255,16 @@ public class TravelApp extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> yearBox;
     // End of variables declaration                   
 
+    
+    
+    
+          
+            
+   //jingli      
+   public void addKeyListener(KeyAdapter keyAdapter)
+   {
+       this.peopleField.addKeyListener(keyAdapter);
+   }
    public void addActionListener(ActionListener listener) {
        this.nameField.addActionListener(listener);
        this.phoneField.addActionListener(listener);
@@ -1272,6 +1287,8 @@ public class TravelApp extends javax.swing.JFrame {
        this.cardMM.addActionListener(listener);
        this.cardYear.addActionListener(listener);
        this.confirmstep3.addActionListener(listener);
+       
+    
        
        
        
