@@ -25,9 +25,13 @@ public class PremiumTaxi extends Travel /*premium taxi details */ {
         System.out.println(this.customer);
     }
 
+    /**
+     *
+     */
     @Override
-    public void CaculatePrice() {
+    public double CaculatePrice() {
         this.price = customer * cost;
+        return this.price;
     }
 
 }
