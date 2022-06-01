@@ -34,9 +34,10 @@ public class Ferry extends Travel /* ferry method*/
     }
 
     @Override
-    public void CaculatePrice() 
+    public double CaculatePrice() 
     {
        this.price = customer * cost;   
+       return this.price;
     }   
 }
     
