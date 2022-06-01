@@ -4,20 +4,24 @@
  */
 package pkg603_assignment2;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author Monalisa
  */
 public class TravelMain {
     
-    public static void main(String[] args)
+    public static void main(String[] args) throws SQLException
     {
     TravelApp ta = new TravelApp();
     PersonalDetailsDB pddb = new PersonalDetailsDB();
     TravelDetailsDB td = new TravelDetailsDB();
     PaymentDetailsDB pd = new PaymentDetailsDB();
-    MembershipDetailsDB md= new MembershipDetailsDB();
     DatabaseMain dbm = new DatabaseMain();
-    Controller controller = new Controller(ta,pddb,td,pd,md);    
+    Controller controller = new Controller(ta,pddb,td,pd);    
+    
     }
+    
+
 }
