@@ -1260,7 +1260,7 @@ public class TravelApp extends javax.swing.JFrame {
     
           
             
-   //jingli      
+
    public void addKeyListener(KeyAdapter keyAdapter)
    {
        this.peopleField.addKeyListener(keyAdapter);
