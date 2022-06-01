@@ -19,6 +19,7 @@ public class Bus extends Travel /* bus method*/ {
 
     }
 
+    @Override
     public void printDetails() {
         System.out.println(this.travelType);
         System.out.println(this.price);
@@ -26,8 +27,9 @@ public class Bus extends Travel /* bus method*/ {
     }
 
     @Override
-    public void CaculatePrice() {
+    public double CaculatePrice() {
         this.price = customer * cost;
+        return this.price;
     }
 
 }
