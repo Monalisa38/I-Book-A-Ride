@@ -4,7 +4,6 @@
  */
 package pkg603_assignment2;
 
-import pkg603_assignment2.IntercityOptions;
 
 /**
  *
@@ -29,8 +28,9 @@ public class Wellington extends IntercityOptions /* wellington intercity method*
     }
 
     @Override
-    public void CalculateTotal() {
+    public double CalculateTotal() {
         this.price = customer * cost;
+        return this.price;
     }
 
 }
