@@ -53,7 +53,7 @@ public void createPersonalDetailsTable() {
         String newTable = "PERSONALDETAILS";
 
 
-        String sqlCreateTable = "CREATE TABLE "+newTable+" (Name VARCHAR(255),"+"Email VARCHAR(255)," +"PhoneNumber INT,"+ "Age INT)";
+        String sqlCreateTable = "CREATE TABLE "+newTable+" (Name VARCHAR(100),"+"Email VARCHAR(50)," +"PhoneNumber VARCHAR(50),"+ "Age VARCHAR(20))";
 
         
         this.statement = conn.createStatement();
@@ -66,8 +66,6 @@ public void createPersonalDetailsTable() {
         System.err.println("SQLException: "+ ex.getMessage());
 
         }   
-
-
 
 }
 
@@ -84,6 +82,7 @@ public void addPersonalDetails(String name, String email, String phone, String a
     this.name = name;
     this.email = email;
     this.phone = phone;
+    this.email = email;
     this.age = age;
     
     this.data = this.dbManager.addPersonalDetails(name, email, phone, age);
