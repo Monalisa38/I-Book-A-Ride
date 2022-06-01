@@ -26,7 +26,8 @@ public class Taxi extends Travel /* travel methods*/ {
     }
 
     @Override
-    public void CaculatePrice() {
+    public double CaculatePrice() {
         this.price = customer * cost;
+        return this.price;
     }
 }
