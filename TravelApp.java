@@ -27,7 +27,7 @@ public class TravelApp extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
     }
-     Travel[] travel = new Travel[6];
+
 
 
     /**
@@ -46,13 +46,8 @@ public class TravelApp extends javax.swing.JFrame {
         buttonGroup4 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        exitButton = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
-        yes = new javax.swing.JRadioButton();
-        confirmstep3 = new javax.swing.JButton();
-        no = new javax.swing.JRadioButton();
-        jLabel39 = new javax.swing.JLabel();
+        RestartButton = new javax.swing.JButton();
+        exitButton1 = new javax.swing.JButton();
         ptaxiRB = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -68,7 +63,7 @@ public class TravelApp extends javax.swing.JFrame {
         trainRB = new javax.swing.JRadioButton();
         ferryRB = new javax.swing.JRadioButton();
         taxiRB = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
+        premiumTaxiRB = new javax.swing.JRadioButton();
         jLabel24 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         hamiltonRB = new javax.swing.JRadioButton();
@@ -76,6 +71,8 @@ public class TravelApp extends javax.swing.JFrame {
         NapierRB = new javax.swing.JRadioButton();
         WellingtonRB = new javax.swing.JRadioButton();
         confirmstep2 = new javax.swing.JButton();
+        TotalField = new javax.swing.JLabel();
+        totalCost = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -101,9 +98,6 @@ public class TravelApp extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        TotalField = new javax.swing.JLabel();
-        doneButton = new javax.swing.JButton();
-        totalCost = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jProgressBar1 = new javax.swing.JProgressBar();
         jLabel20 = new javax.swing.JLabel();
@@ -122,7 +116,7 @@ public class TravelApp extends javax.swing.JFrame {
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         cvvField = new javax.swing.JPasswordField();
-        confirmstep4 = new javax.swing.JButton();
+        confirmstep3 = new javax.swing.JButton();
         cvvHelp = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
@@ -144,12 +138,21 @@ public class TravelApp extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Myanmar MN", 0, 36)); // NOI18N
         jLabel1.setText("Welcome to I Book A Ride!");
 
-        exitButton.setBackground(new java.awt.Color(255, 204, 255));
-        exitButton.setFont(new java.awt.Font("Monaco", 0, 13)); // NOI18N
-        exitButton.setText("EXIT");
-        exitButton.addActionListener(new java.awt.event.ActionListener() {
+        RestartButton.setBackground(new java.awt.Color(255, 204, 255));
+        RestartButton.setFont(new java.awt.Font("Monaco", 0, 13)); // NOI18N
+        RestartButton.setText("Restart");
+        RestartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitButtonActionPerformed(evt);
+                RestartButtonActionPerformed(evt);
+            }
+        });
+
+        exitButton1.setBackground(new java.awt.Color(255, 204, 255));
+        exitButton1.setFont(new java.awt.Font("Monaco", 0, 13)); // NOI18N
+        exitButton1.setText("EXIT");
+        exitButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButton1ActionPerformed(evt);
             }
         });
 
@@ -158,92 +161,33 @@ public class TravelApp extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(RestartButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(339, 339, 339)
-                .addComponent(exitButton)
-                .addContainerGap())
+                .addGap(421, 421, 421))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(1221, Short.MAX_VALUE)
+                    .addComponent(exitButton1)
+                    .addGap(16, 16, 16)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(RestartButton)))
                 .addContainerGap(18, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(exitButton)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
-
-        jLabel21.setFont(new java.awt.Font("Monaco", 0, 13)); // NOI18N
-        jLabel21.setText("Would you be keen for a member program?");
-
-        buttonGroup4.add(yes);
-        yes.setFont(new java.awt.Font("Monaco", 0, 13)); // NOI18N
-        yes.setText("Yes");
-        yes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                yesActionPerformed(evt);
-            }
-        });
-
-        confirmstep3.setBackground(new java.awt.Color(255, 204, 204));
-        confirmstep3.setFont(new java.awt.Font("Monaco", 1, 15)); // NOI18N
-        confirmstep3.setText("CONFIRM STEP4");
-        confirmstep3.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 204, 204), null));
-        confirmstep3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmstep4ActionPerformed(evt);
-            }
-        });
-
-        buttonGroup4.add(no);
-        no.setFont(new java.awt.Font("Monaco", 0, 13)); // NOI18N
-        no.setText("No");
-        no.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                noActionPerformed(evt);
-            }
-        });
-
-        jLabel39.setFont(new java.awt.Font("Gill Sans", 1, 14)); // NOI18N
-        jLabel39.setText("Step 4/Optional");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel21)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(yes)
-                        .addGap(18, 18, 18)
-                        .addComponent(no))
-                    .addComponent(jLabel39))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(confirmstep3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel39)
-                .addGap(5, 5, 5)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(yes)
-                    .addComponent(no))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
-                .addComponent(confirmstep3)
-                .addContainerGap())
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(10, 10, 10)
+                    .addComponent(exitButton1)
+                    .addContainerGap(37, Short.MAX_VALUE)))
         );
 
         ptaxiRB.setBackground(new java.awt.Color(255, 255, 255));
@@ -310,9 +254,9 @@ public class TravelApp extends javax.swing.JFrame {
         taxiRB.setFont(new java.awt.Font("Monaco", 0, 13)); // NOI18N
         taxiRB.setText("Taxi");
 
-        buttonGroup2.add(jRadioButton7);
-        jRadioButton7.setFont(new java.awt.Font("Monaco", 0, 13)); // NOI18N
-        jRadioButton7.setText("Premium Taxi");
+        buttonGroup2.add(premiumTaxiRB);
+        premiumTaxiRB.setFont(new java.awt.Font("Monaco", 0, 13)); // NOI18N
+        premiumTaxiRB.setText("Premium Taxi");
 
         jLabel24.setFont(new java.awt.Font("Gill Sans", 1, 14)); // NOI18N
         jLabel24.setText("Step 2");
@@ -359,10 +303,27 @@ public class TravelApp extends javax.swing.JFrame {
         confirmstep2.setBackground(new java.awt.Color(255, 204, 204));
         confirmstep2.setFont(new java.awt.Font("Monaco", 1, 15)); // NOI18N
         confirmstep2.setText("CONFIRM STEP2");
-        confirmstep2.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 204, 204), null));
         confirmstep2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmstep2ActionPerformed(evt);
+            }
+        });
+
+        TotalField.setFont(new java.awt.Font("Monaco", 0, 13)); // NOI18N
+        TotalField.setText("Total:");
+
+        totalCost.setEditable(false);
+        totalCost.setFont(new java.awt.Font("Monaco", 0, 13)); // NOI18N
+        totalCost.setText("$");
+        totalCost.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 204, 204), null));
+        totalCost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalActionPerformed(evt);
+            }
+        });
+        totalCost.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                totalCostpeopleField(evt);
             }
         });
 
@@ -373,32 +334,6 @@ public class TravelApp extends javax.swing.JFrame {
             .addGroup(ptaxiRBLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ptaxiRBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(ptaxiRBLayout.createSequentialGroup()
-                        .addComponent(BusRB)
-                        .addGap(18, 18, 18)
-                        .addComponent(trainRB)
-                        .addGap(18, 18, 18)
-                        .addComponent(ferryRB)
-                        .addGap(18, 18, 18)
-                        .addComponent(taxiRB)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButton7))
-                    .addComponent(jLabel3)
-                    .addGroup(ptaxiRBLayout.createSequentialGroup()
-                        .addComponent(hamiltonRB)
-                        .addGap(18, 18, 18)
-                        .addComponent(RotoruaRB)
-                        .addGap(18, 18, 18)
-                        .addComponent(NapierRB)
-                        .addGap(18, 18, 18)
-                        .addComponent(WellingtonRB))
-                    .addGroup(ptaxiRBLayout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addComponent(peopleField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ptaxiRBLayout.createSequentialGroup()
                         .addGroup(ptaxiRBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(ptaxiRBLayout.createSequentialGroup()
@@ -413,11 +348,47 @@ public class TravelApp extends javax.swing.JFrame {
                                 .addComponent(jLabel12)))
                         .addGap(28, 28, 28)
                         .addGroup(ptaxiRBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(year)
                             .addGroup(ptaxiRBLayout.createSequentialGroup()
                                 .addComponent(yearBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(confirmstep2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(ptaxiRBLayout.createSequentialGroup()
+                                .addComponent(year)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(confirmstep2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(totalCost, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(13, 13, 13))))
+                    .addGroup(ptaxiRBLayout.createSequentialGroup()
+                        .addGroup(ptaxiRBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ptaxiRBLayout.createSequentialGroup()
+                                .addComponent(BusRB)
+                                .addGap(18, 18, 18)
+                                .addComponent(trainRB)
+                                .addGap(18, 18, 18)
+                                .addComponent(ferryRB)
+                                .addGap(18, 18, 18)
+                                .addComponent(taxiRB)
+                                .addGap(18, 18, 18)
+                                .addComponent(premiumTaxiRB))
+                            .addComponent(jLabel3)
+                            .addGroup(ptaxiRBLayout.createSequentialGroup()
+                                .addComponent(hamiltonRB)
+                                .addGap(18, 18, 18)
+                                .addComponent(RotoruaRB)
+                                .addGap(18, 18, 18)
+                                .addComponent(NapierRB)
+                                .addGap(18, 18, 18)
+                                .addComponent(WellingtonRB))
+                            .addGroup(ptaxiRBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(TotalField)
+                                .addComponent(jLabel2))
+                            .addGroup(ptaxiRBLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(peopleField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         ptaxiRBLayout.setVerticalGroup(
@@ -433,7 +404,7 @@ public class TravelApp extends javax.swing.JFrame {
                     .addComponent(trainRB)
                     .addComponent(ferryRB)
                     .addComponent(taxiRB)
-                    .addComponent(jRadioButton7))
+                    .addComponent(premiumTaxiRB))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
@@ -448,23 +419,25 @@ public class TravelApp extends javax.swing.JFrame {
                     .addComponent(peopleField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel10)
-                .addGap(40, 40, 40)
+                .addGap(9, 9, 9)
+                .addComponent(TotalField, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
                 .addGroup(ptaxiRBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(jLabel12)
-                    .addComponent(year))
+                    .addComponent(year)
+                    .addComponent(totalCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(ptaxiRBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ptaxiRBLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addGroup(ptaxiRBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(dateBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(monthbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(yearBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(107, 107, 107))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ptaxiRBLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(confirmstep2)
-                        .addGap(88, 88, 88))))
+                            .addComponent(yearBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(ptaxiRBLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(confirmstep2)))
+                .addGap(82, 82, 82))
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -520,7 +493,6 @@ public class TravelApp extends javax.swing.JFrame {
         confirmstep1.setBackground(new java.awt.Color(255, 204, 204));
         confirmstep1.setFont(new java.awt.Font("Monaco", 1, 15)); // NOI18N
         confirmstep1.setText("CONFIRM STEP1");
-        confirmstep1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 204, 204), null));
         confirmstep1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmstep1(evt);
@@ -545,22 +517,21 @@ public class TravelApp extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nameField)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(ageField, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(confirmstep1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel7)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel6))
-                            .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(ageField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(confirmstep1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(emailField))
                 .addContainerGap())
         );
@@ -633,34 +604,6 @@ public class TravelApp extends javax.swing.JFrame {
         jLabel31.setFont(new java.awt.Font("Monaco", 0, 13)); // NOI18N
         jLabel31.setText("Wellington -> $50.00pp");
 
-        TotalField.setFont(new java.awt.Font("Monaco", 0, 13)); // NOI18N
-        TotalField.setText("Total:");
-
-        doneButton.setBackground(new java.awt.Color(255, 204, 204));
-        doneButton.setFont(new java.awt.Font("Monaco", 1, 18)); // NOI18N
-        doneButton.setText("DONE");
-        doneButton.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 204, 204), null));
-        doneButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                doneButtonActionPerformed(evt);
-            }
-        });
-
-        totalCost.setEditable(false);
-        totalCost.setFont(new java.awt.Font("Monaco", 0, 13)); // NOI18N
-        totalCost.setText("$");
-        totalCost.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 204, 204), null));
-        totalCost.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                totalActionPerformed(evt);
-            }
-        });
-        totalCost.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                totalCostpeopleField(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -668,32 +611,22 @@ public class TravelApp extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(doneButton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel28)
-                                    .addComponent(jLabel16)
-                                    .addComponent(jLabel17)
-                                    .addComponent(jLabel18)
-                                    .addComponent(jLabel19)
-                                    .addComponent(jLabel25)
-                                    .addComponent(jLabel29)
-                                    .addComponent(jLabel30)
-                                    .addComponent(jLabel31)
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(TotalField)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(totalCost, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 149, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel29)
+                            .addComponent(jLabel30)
+                            .addComponent(jLabel31))))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -722,13 +655,7 @@ public class TravelApp extends javax.swing.JFrame {
                 .addComponent(jLabel29)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel31)
-                .addGap(51, 51, 51)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TotalField, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(totalCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(doneButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -825,11 +752,10 @@ public class TravelApp extends javax.swing.JFrame {
             }
         });
 
-        confirmstep4.setBackground(new java.awt.Color(255, 204, 204));
-        confirmstep4.setFont(new java.awt.Font("Monaco", 1, 15)); // NOI18N
-        confirmstep4.setText("CONFIRM STEP3");
-        confirmstep4.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 204, 204), null));
-        confirmstep4.addActionListener(new java.awt.event.ActionListener() {
+        confirmstep3.setBackground(new java.awt.Color(255, 204, 204));
+        confirmstep3.setFont(new java.awt.Font("Monaco", 1, 15)); // NOI18N
+        confirmstep3.setText("CONFIRM STEP3");
+        confirmstep3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmstep3ActionPerformed(evt);
             }
@@ -837,7 +763,6 @@ public class TravelApp extends javax.swing.JFrame {
 
         cvvHelp.setFont(new java.awt.Font("Monaco", 0, 10)); // NOI18N
         cvvHelp.setText("Whats this?");
-        cvvHelp.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(255, 204, 204), null));
         cvvHelp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cvvHelpActionPerformed(evt);
@@ -879,16 +804,17 @@ public class TravelApp extends javax.swing.JFrame {
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel36)
                                     .addComponent(cardYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(127, 127, 127)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel6Layout.createSequentialGroup()
-                                        .addComponent(jLabel37)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cvvHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel6Layout.createSequentialGroup()
                                         .addComponent(cvvField, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(confirmstep4, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(confirmstep3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel37)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cvvHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
                         .addContainerGap())))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -941,14 +867,15 @@ public class TravelApp extends javax.swing.JFrame {
                             .addComponent(jLabel37)
                             .addComponent(cvvHelp))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cardMM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cardYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cvvField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cvvField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cardMM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cardYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(confirmstep4)))
+                        .addComponent(confirmstep3)))
                 .addContainerGap())
         );
 
@@ -962,12 +889,11 @@ public class TravelApp extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ptaxiRB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ptaxiRB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -979,13 +905,11 @@ public class TravelApp extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ptaxiRB, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ptaxiRB, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1001,19 +925,15 @@ public class TravelApp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                           
 
-    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        System.out.println("The user has exited the system");
-        System.exit(0);
+    private void RestartButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        
+        if (evt.getSource() == RestartButton)
+        {
+            this.dispose();
+            new TravelApp();
+        }
 
-    }                                          
-
-    private void yesActionPerformed(java.awt.event.ActionEvent evt) {                                    
-        // TODO add your handling code here:
-    }                                   
-
-    private void noActionPerformed(java.awt.event.ActionEvent evt) {                                   
-        // TODO add your handling code here:
-    }                                  
+    }                                             
 
     private void BusRBActionPerformed(java.awt.event.ActionEvent evt) {                                      
 
@@ -1098,6 +1018,11 @@ public class TravelApp extends javax.swing.JFrame {
              evt.consume();
         }
            
+            if(peopleField.getText().length() >=3)
+        {
+            JOptionPane.showMessageDialog(this, "You cannot have more than 999 people per booking");
+            evt.consume();
+        }
   
     }                            
 
@@ -1147,11 +1072,6 @@ public class TravelApp extends javax.swing.JFrame {
     private void cvvFieldActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
     }                                        
-
-    private void doneButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        System.out.println("The user has exited the system");
-        System.exit(0);
-    }                                          
 
     private void cardNumberField(java.awt.event.KeyEvent evt) {                                 
            char c = evt.getKeyChar();     
@@ -1206,9 +1126,10 @@ public class TravelApp extends javax.swing.JFrame {
         System.out.println("Payment Details saved to the database");
     }                                            
 
-    private void confirmstep4ActionPerformed(java.awt.event.ActionEvent evt) {                                             
-         System.out.println("Membership Details saved to the database");
-    }                                            
+    private void exitButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+               System.out.println("The user has exited the system");
+               System.exit(0);
+    }                                           
 
   
     /**
@@ -1250,6 +1171,7 @@ public class TravelApp extends javax.swing.JFrame {
     // Variables declaration - do not modify                     
     public javax.swing.JRadioButton BusRB;
     public javax.swing.JRadioButton NapierRB;
+    public javax.swing.JButton RestartButton;
     public javax.swing.JRadioButton RotoruaRB;
     private javax.swing.JLabel TotalField;
     public javax.swing.JRadioButton WellingtonRB;
@@ -1266,13 +1188,11 @@ public class TravelApp extends javax.swing.JFrame {
     public javax.swing.JButton confirmstep1;
     public javax.swing.JButton confirmstep2;
     public javax.swing.JButton confirmstep3;
-    public javax.swing.JButton confirmstep4;
     public javax.swing.JPasswordField cvvField;
     public javax.swing.JButton cvvHelp;
     public javax.swing.JComboBox<String> dateBox;
-    public javax.swing.JButton doneButton;
     public javax.swing.JTextField emailField;
-    public javax.swing.JButton exitButton;
+    public javax.swing.JButton exitButton1;
     public javax.swing.JRadioButton ferryRB;
     public javax.swing.JRadioButton hamiltonRB;
     private javax.swing.JDialog jDialog1;
@@ -1288,7 +1208,6 @@ public class TravelApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -1305,7 +1224,6 @@ public class TravelApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1313,18 +1231,16 @@ public class TravelApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JProgressBar jProgressBar1;
-    public javax.swing.JRadioButton jRadioButton7;
     public javax.swing.JRadioButton mastercardRB;
     public javax.swing.JComboBox<String> monthbox;
     public javax.swing.JTextField nameField;
-    public javax.swing.JRadioButton no;
     public javax.swing.JTextField peopleField;
     public javax.swing.JTextField phoneField;
+    public javax.swing.JRadioButton premiumTaxiRB;
     private javax.swing.JPanel ptaxiRB;
     public javax.swing.JRadioButton taxiRB;
     public javax.swing.JTextField totalCost;
@@ -1332,7 +1248,6 @@ public class TravelApp extends javax.swing.JFrame {
     public javax.swing.JRadioButton visaRB;
     private javax.swing.JLabel year;
     public javax.swing.JComboBox<String> yearBox;
-    public javax.swing.JRadioButton yes;
     // End of variables declaration                   
 
    public void addActionListener(ActionListener listener) {
@@ -1342,9 +1257,23 @@ public class TravelApp extends javax.swing.JFrame {
        this.ageField.addActionListener(listener);
        this.confirmstep1.addActionListener(listener);
        
-       this.yes.addActionListener(listener);
-       this.no.addActionListener(listener);
+       this.BusRB.addActionListener(listener);
+       this.trainRB.addActionListener(listener);
+       this.ferryRB.addActionListener(listener);
+       this.taxiRB.addActionListener(listener);
+       this.premiumTaxiRB.addActionListener(listener);
        this.confirmstep2.addActionListener(listener);
+       
+       this.visaRB.addActionListener(listener);
+       this.mastercardRB.addActionListener(listener);
+       this.aeRB.addActionListener(listener);
+       this.cardholdersnameField.addActionListener(listener);
+       this.cardNumberField.addActionListener(listener);
+       this.cardMM.addActionListener(listener);
+       this.cardYear.addActionListener(listener);
+       this.confirmstep3.addActionListener(listener);
+       
+       
        
     }
 }
