@@ -3,6 +3,9 @@
 
     import java.awt.event.ActionEvent;
     import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 
     /*
@@ -14,13 +17,15 @@
      *
      * @author Monalisa
      */
-    public class Controller implements ActionListener {
+    public class Controller extends KeyAdapter implements ActionListener, KeyListener{
 
           public TravelApp travelApp;
           public PersonalDetailsDB pd;
           public TravelDetailsDB td;
           public PaymentDetailsDB pymd;
-          Travel[] travel = new Travel[6];
+          public Travel travel;
+          public IntercityOptions io;
+
 
 
           /**
@@ -38,6 +43,7 @@
                 this.td = td;  //traveldetails
                 this.pymd = pymd; // paymentdetails
                 this.travelApp.addActionListener(this); //add action listener of this class to the travelapp
+                this.travelApp.addKeyListener(this);
             }
 
           /**
@@ -48,6 +54,8 @@
             String command = e.getActionCommand();
             System.out.println("action command " +command );
             switch(command){
+                
+                
                 case "CONFIRM STEP1":
                     String name = this.travelApp.nameField.getText();
                     String email = this.travelApp.emailField.getText();
@@ -59,17 +67,14 @@
                 case "CONFIRM STEP2":
                     String peoples = this.travelApp.peopleField.getText();
                     String travelType = "0";
-                         int people = 0;
+
                     if(this.travelApp.BusRB.isSelected())
                     {
                           travelType = "0";
            
-              this.travelApp.totalCost.addActionListener(this);  travel[0] = new Bus(people);
+              this.travelApp.totalCost.addActionListener(this); 
 
-                travel[0].CaculatePrice();
 
-                System.out.printf("You have booked a " + travel[0].travelType);
-                System.out.println("The total cost is $" + travel[0].price + "0");
                     }
                     else if(this.travelApp.trainRB.isSelected())
                     {
@@ -137,6 +142,122 @@
             }
                     
 
+        }
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+            
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+             
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+             String p = this.travelApp.peopleField.getText();
+             if (p.length() > 0)
+             {
+                 int people = Integer.parseInt(p);
+                  if(this.travelApp.BusRB.isSelected())
+                  {
+                     travel = new Bus(people);
+                     String total = Double. toString(travel.CaculatePrice()) ;
+                     this.travelApp.totalCost.setText(total);
+                  }
+             }
+             if(p.length() >0)
+             {
+                 int people = Integer.parseInt(p);
+                 if(this.travelApp.trainRB.isSelected())
+                 {
+                     travel = new Train(people);
+                     String total = Double.toString(travel.CaculatePrice());
+                     this.travelApp.totalCost.setText(total);
+                 }
+             }
+             if(p.length() >0)
+             {
+                 int people = Integer.parseInt(p);
+                 if(this.travelApp.ferryRB.isSelected())
+                 {
+                     travel = new Ferry(people);
+                     String total = Double.toString(travel.CaculatePrice());
+                     this.travelApp.totalCost.setText(total);
+                 }
+             }
+             if(p.length() >0)
+             {
+                 int people = Integer.parseInt(p);
+                 if(this.travelApp.taxiRB.isSelected())
+                 {
+                     travel = new Taxi(people);
+                     String total = Double.toString(travel.CaculatePrice());
+                     this.travelApp.totalCost.setText(total);
+                 }
+             }
+             
+             if(p.length() >0)
+             {
+                 int people = Integer.parseInt(p);
+                 if(this.travelApp.premiumTaxiRB.isSelected())
+                 {
+                     travel = new PremiumTaxi(people);
+                     String total = Double.toString(travel.CaculatePrice());
+                     this.travelApp.totalCost.setText(total);
+                 }
+             }
+             
+               if(p.length() >0)
+             {
+                 int people = Integer.parseInt(p);
+                 if(this.travelApp.hamiltonRB.isSelected())
+                 {
+                     io = new Hamilton(people);
+                     String total = Double.toString(io.CalculateTotal());
+                     this.travelApp.totalCost.setText(total);
+                 }
+             }
+             
+                if(p.length() >0)
+             {
+                 int people = Integer.parseInt(p);
+                 if(this.travelApp.RotoruaRB.isSelected())
+                 {
+                     io = new Rotorua(people);
+                     String total = Double.toString(io.CalculateTotal());
+                     this.travelApp.totalCost.setText(total);
+                 }
+             }
+             
+                if(p.length() >0)
+             {
+                 int people = Integer.parseInt(p);
+                 if(this.travelApp.NapierRB.isSelected())
+                 {
+                     io = new Napier(people);
+                     String total = Double.toString(io.CalculateTotal());
+                     this.travelApp.totalCost.setText(total);
+                 }
+             }
+             
+                if(p.length() >0)
+             {
+                 int people = Integer.parseInt(p);
+                 if(this.travelApp.WellingtonRB.isSelected())
+                 {
+                     io = new Wellington(people);
+                     String total = Double.toString(io.CalculateTotal());
+                     this.travelApp.totalCost.setText(total);
+                 }
+             }
+             
+             
+             else
+             {
+                 this.travelApp.totalCost.setText("");
+             }
         }
 
     }
